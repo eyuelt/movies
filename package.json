@@ -1,14 +1,14 @@
 {
-  "name": "movies-txt",
+  "name": "movies",
   "version": "0.0.1",
   "description": "An app for keeping track of your movie watchlist",
   "main": "./app.js",
   "author": "Eyuel Tessema <eyueltessema@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/eyuelt/movies-txt"
+    "url": "https://github.com/eyuelt/movies"
   },
-  "bugs": "https://github.com/eyuelt/movies-txt/issues",
+  "bugs": "https://github.com/eyuelt/movies/issues",
   "private": true,
   "license": "MIT",
   "devDependencies": {
@@ -20,7 +20,7 @@
     "body-parser": "^1.12.2",
     "express": "^4.12.3",
     "jade": "^1.9.2",
-    "mongodb": "^2.0.27",
-    "mongoose": "^4.0.1"
+    "pg": "^4.4.3",
+    "pg-query": "^0.11.0"
   }
 }

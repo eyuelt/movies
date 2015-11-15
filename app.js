@@ -1,15 +1,9 @@
 var express = require('express');
-var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var app = module.exports = express();
 
 var routes = require('./routes/index');
 var api = require('./routes/api');
-
-//connect to mongoDB
-var database_name = 'movies-txt';
-var database_uri = 'mongodb://localhost/' + database_name;
-mongoose.connect(database_uri);
 
 //config
 app.set('port', process.env.PORT || 8080);
