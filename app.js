@@ -5,6 +5,9 @@ var app = module.exports = express();
 var routes = require('./routes/index');
 var api = require('./routes/api');
 
+var query = require('pg-query');
+query.connectionParameters = "postgres://localhost/eyuelt";
+
 //config
 app.set('port', process.env.PORT || 8080);
 app.set('views', __dirname + '/views');

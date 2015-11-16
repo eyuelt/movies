@@ -1,8 +1,19 @@
-var Mongoose = require('mongoose');
-var Schema = Mongoose.Schema;
+var query = require('pg-query');
 
-var MovieSchema = new Schema({
-  "title": String,
-});
+var Movie = function(id) {
+  this.id = id
+  //create a new movie row with the given id
+}
 
-exports.Movie = Mongoose.model('Movie', MovieSchema);
+Movie.prototype.getTitle = function() {
+  //get the title from the row with the given id
+  return "get title";
+}
+
+Movie.prototype.setTitle = function() {
+  //edit the title for the row with the given id
+  return "set title";
+}
+
+
+module.exports.Movie = Movie;
