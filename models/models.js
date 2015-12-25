@@ -1,25 +1,22 @@
-var query = require('pg-query');
+var bookshelf = require('bookshelf').DB
 
-var Movie = function(id, title) {
-  this.id = id
-  this.title = title
-}
+var User = bookshelf.Model.extend({
+  tableName: 'account'
+});
 
-Movie.prototype.getTitle = function(cb) {
-  query("SELECT * FROM Movie WHERE id = $1;", [this.id], function(err, result) {
-    if (err) {
-      console.log(err);
-    } else {
-      cb(result[0].title);
-    }
-  });
-}
+var Movie = bookshelf.Model.extend({
+  tableName: 'movie'
+});
 
-Movie.prototype.commit = function() {
-  query("INSERT INTO Movie VALUES($1, $2);", [this.id, this.title], function(err, result) {
-    console.log((err ? "Error" : "Success") + " inserting into Movie table");
-    if (err) console.log(err);
-  });
-}
-
+module.exports.User = User;
 module.exports.Movie = Movie;
+
+
+
+User.where('id', 1).fetch().then(function(user) {
+    console.log(user.toJSON());
+}).catch(function(err) {
+    console.error(err);
+});
+
+var u = new User({name: 'hi'}).save();

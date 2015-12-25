@@ -15,6 +15,18 @@ app.set('view engine', 'jade');
 app.set('env', process.env.NODE_ENV || 'dev');
 app.use(bodyParser.json());
 
+//db
+var dbConfig = {
+  client: 'pg',
+  connection: {
+    host: '127.0.0.1',
+    database: 'eyuelt'
+  }
+}
+var knex = require('knex')(dbConfig);
+var bookshelf = require('bookshelf');
+bookshelf.DB = bookshelf(knex);
+
 //static content
 app.use('/static', express.static(__dirname + '/dist'));
 
